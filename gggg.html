@@ -1,0 +1,199 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="header-title mb-4">Add Subject</h4>
+
+                <div class="">
+                        
+                    <form class="form-horizontal" action="#" method="POST" enctype="multipart/form-data">
+
+                    <div class="form-group row">
+                            <label class="col-md-2 col-form-label" for="example-input-small">Course Name</label>
+                            <div class="col-md-10">
+                                <select class="col-md-12 col-form-label form-control" name="course_name" id="">
+                                    <option value="">Select Course Name</option>
+                                
+                                    <?php
+
+                                        $res=mysqli_query($con,"SELECT id,course_name FROM course");
+                                        while($row=mysqli_fetch_assoc($res)){
+                                            echo "<option value=".$row['id'].">".$row['course_name']."</option>";
+                                        }
+
+                                    ?>
+
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-md-2 col-form-label" for="example-input-small">Semester Name</label>
+                            <div class="col-md-10">
+                                <select class="col-md-12 col-form-label form-control" name="semester_name" id="">
+                                    <option value="">Select Semester Name</option>
+                                
+                                    <?php
+
+                                        $res=mysqli_query($con,"SELECT id,semester_name FROM semester");
+                                        while($sem=mysqli_fetch_assoc($res)){
+                                            echo "<option value=".$sem['id'].">".$sem['semester_name']."</option>";
+                                        }
+
+                                    ?>
+
+                                </select>
+                            </div>
+                        </div>
+
+                    <div class="form-group row">
+                            <label class="col-md-2 col-form-label" for="example-input-small">Subject Name</label>
+                            <div class="col-md-10">
+                             <input type="text" name="subject_name" class="form-control" placeholder="Enter Your Subject Name">
+                            </div>
+                        </div>
+                   
+
+
+                        <button type="submit" name="add_subject_btn" class="btn btn-primary waves-effect width-md waves-light">Submit</button>
+                    
+                      
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- end card -->
+    </div>
+    <!-- end col -->
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+
+         <div class="card-body table-responsive">
+
+<table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+
+<thead>
+<tr>
+    <th>S.NO</th>
+    <th>Course Name</th>
+    <th>Semester Name</th>
+    <th>Subject Name</th>
+    <th>Action</th>
+    
+</tr>
+</thead>
+
+ <tbody>
+<?php
+
+$s_no = 1;
+
+$query = "SELECT * FROM `subject`";
+$query_run = mysqli_query($con,$query);
+if (mysqli_num_rows($query_run) > 0) 
+{
+foreach($query_run as $row)
+{ 
+    $course_id = $row['course']; //Get id for course name display and this is course tale course id
+
+    $semester_id = $row['semester']; //Get id for semester name display and this is course tale course id
+?>
+
+<tr>
+<td><?php echo $s_no ?></td>
+
+
+    <!-- Course name display start -->
+
+    <?php
+        $category = "SELECT * FROM course WHERE id='$course_id'"; //insert course id
+        $category_run = mysqli_query($con, $category);
+        $check_category = mysqli_num_rows($category_run);
+
+        if ($check_category > 0) 
+        {
+        while ($course = mysqli_fetch_assoc($category_run)) 
+        {
+            
+    ?>
+
+            <td><?php echo $course['course_name'] ?></td>
+
+        <?php
+            }
+            }
+        ?>
+
+        <!-- Course name display end -->
+
+        <!-- semester name display start -->
+
+    <?php
+        $category = "SELECT * FROM semester WHERE id='$semester_id'"; //insert semester id
+        $category_run = mysqli_query($con, $category);
+        $check_category = mysqli_num_rows($category_run);
+
+        if ($check_category > 0) 
+        {
+        while ($semester = mysqli_fetch_assoc($category_run)) 
+        {
+            
+    ?>
+
+            <td><?php echo $semester['semester_name'] ?></td>
+
+        <?php
+            }
+            }
+        ?>
+
+        <!-- semester name display end -->
+
+
+<td><?php echo $row['subject'] ?></td>
+
+
+<td>
+
+<a href="edit_subject.php?id=<?php echo $row['id'];?>" class="btn btn-info">Edit</a>
+
+<a href="?id=<?php echo $row['id'];?>&action=del"  onclick="return confirm('Are you sure want to Delete?')"
+class="btn btn-danger">Delete</a>
+</td>
+</td>
+</tr>
+
+<?php
+$s_no++;
+}
+}
+?>
+</tbody>
+     </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end row -->
+</div>
+<!-- end container-fluid -->
+</div>
+<!-- end content -->
+
+
+<?php
+
+include("footer.php");
+
+?>
+
+</div>
+
+<!-- ============================================================== -->
+<!-- End Page content -->
+<!-- ============================================================== -->
+
+</div>
