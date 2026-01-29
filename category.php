@@ -68,8 +68,6 @@ if (isset($_GET['id']) != '' && isset($_GET['action']) == 'del') {
         <main>
             <div class="container-fluid px-4">
 
-
-
                 <div class="card mb-4">
                     <div class="card-header">
                         <h2 class="bg-light"><i class="fa fa-columns" aria-hidden="true"></i>CATEGORY</h2>
@@ -151,4 +149,5 @@ if (isset($_GET['id']) != '' && isset($_GET['action']) == 'del') {
 
         <?php
         include('includes/footer.php');
+
         ?>
