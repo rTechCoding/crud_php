@@ -29,7 +29,6 @@ if (isset($_POST['submit'])) {
     }
 
     // Image Update
-    
     $query = "UPDATE `category` SET `name`='$name',`image`='$filename' WHERE `id` = '$category_id'";
 
     $query_run = mysqli_query ($con, $query);
@@ -144,4 +143,5 @@ if (isset($_POST['submit'])) {
         <!-- footer part -->
         <?php
         include("includes/footer.php");
+
         ?>
