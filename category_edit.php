@@ -43,13 +43,11 @@ if (isset($_POST['submit'])) {
         echo "<script>alert('Category Edit Sucessfully')
         window.location.href='category.php';
         
-        
         </script>";
     }
     exit(0);{
         echo "<script>alert('Category Not Edit Sucessfully')
         window.location.href='category.php';
-        
         
         </script>";
         exit(0);
@@ -145,3 +143,4 @@ if (isset($_POST['submit'])) {
         include("includes/footer.php");
 
         ?>
+
