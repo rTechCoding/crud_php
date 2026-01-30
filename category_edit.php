@@ -66,10 +66,6 @@ if (isset($_POST['submit'])) {
     ?>
     <div id="layoutSidenav_content">
 
-
-
-
-
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -143,4 +139,5 @@ if (isset($_POST['submit'])) {
         include("includes/footer.php");
 
         ?>
+
 
