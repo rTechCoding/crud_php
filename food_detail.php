@@ -76,13 +76,6 @@ if (isset($_GET['id']) != '' && isset($_GET['action']) == 'del') {
                         <!-- <a  class="btn btn-primary"  href="add_food_details.php" role="button" style="float: right;margin-top:-40px;"><i class="fa fa-plus"></i> Add food_details</a> -->
                         <button type="button" class="btn btn-primary ml-5" data-toggle="modal" data-target=".bd-example-modal-lg" style="float: right;margin-top:-40px;"><i class="fa fa-plus"></i>Add Food Details</button>
                     </div>
-
-
-
-
-
-
-
                     
                     <div class="card-body">
                         <table id="datatablesSimple" style="background-color:teal;">
@@ -169,4 +162,5 @@ if (isset($_GET['id']) != '' && isset($_GET['action']) == 'del') {
 
         <?php
         include('includes/footer.php');
+
         ?>
