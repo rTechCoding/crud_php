@@ -105,9 +105,6 @@ if (isset($_GET['id']) != '' && isset($_GET['action']) == 'del') {
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $row) {
 
-
-
-
                                 ?>
 
                                         <!--image insert  -->
@@ -164,3 +161,4 @@ if (isset($_GET['id']) != '' && isset($_GET['action']) == 'del') {
         include('includes/footer.php');
 
         ?>
+
