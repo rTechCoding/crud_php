@@ -28,9 +28,7 @@ include("includes/header.php");
 
           <div class="card-body">
 
-
-
-
+
 
 
             <form action="category_call.php" method="POST" enctype="multipart/form-data">
