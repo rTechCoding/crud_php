@@ -2,8 +2,7 @@
 <?php
 include("includes/header.php");
 include ("db/conn.php");
-?>
-
+?>
 
 <div id="layoutSidenav">
 
